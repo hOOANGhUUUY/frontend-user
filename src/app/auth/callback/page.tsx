@@ -20,7 +20,7 @@ export default function AuthCallback() {
         // Cookies.set('token', token);
         // Cookies.set('user', userData);
         Cookies.set('token', token, { path: '/', sameSite: 'Lax' });
-Cookies.set('user', userData, { path: '/', sameSite: 'Lax' });
+        Cookies.set('user', userData, { path: '/', sameSite: 'Lax' });
 
         // Parse user data
         const userInfo = JSON.parse(userData);
@@ -29,6 +29,8 @@ Cookies.set('user', userData, { path: '/', sameSite: 'Lax' });
         if (isNewUser === 'true') {
           triggerRegisterSuccess(userInfo);
         } else {
+          console.log('đã vào nhập');
+          
           triggerLoginSuccess(userInfo);
         }
         
