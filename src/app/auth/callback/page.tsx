@@ -13,9 +13,13 @@ export default function AuthCallback() {
     const token = searchParams.get('token');
     const userData = searchParams.get('user');
     const isNewUser = searchParams.get('new_user'); // Backend có thể gửi flag này
-
+    console.log('1');
     if (token && userData) {
+      console.log('2');
+
       try {
+        console.log('3');
+
         // Lưu token và user vào cookie
         // Cookies.set('token', token);
         // Cookies.set('user', userData);
@@ -24,25 +28,33 @@ export default function AuthCallback() {
 
         // Parse user data
         const userInfo = JSON.parse(userData);
-        
+
         // Phân biệt đăng ký mới hay đăng nhập
         if (isNewUser === 'true') {
+          console.log('4');
+
           triggerRegisterSuccess(userInfo);
         } else {
+          console.log('5');
+
           console.log('đã vào nhập');
-          
+
           triggerLoginSuccess(userInfo);
         }
-        
+
         // Redirect về trang chủ
         // router.push('/');
         router.replace('/');
 
       } catch (error) {
+          console.log('6');
+
         console.error('Error processing auth callback:', error);
         router.push('/login?error=auth_failed');
       }
     } else {
+          console.log('7');
+
       // Nếu không có token, redirect về trang đăng nhập
       router.push('/login?error=no_token');
     }
