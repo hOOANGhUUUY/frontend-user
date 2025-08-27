@@ -17,9 +17,11 @@ export default function AuthCallback() {
     if (token && userData) {
       try {
         // Lưu token và user vào cookie
-        Cookies.set('token', token);
-        Cookies.set('user', userData);
-        
+        // Cookies.set('token', token);
+        // Cookies.set('user', userData);
+        Cookies.set('token', token, { path: '/', sameSite: 'Lax' });
+Cookies.set('user', userData, { path: '/', sameSite: 'Lax' });
+
         // Parse user data
         const userInfo = JSON.parse(userData);
         
@@ -31,7 +33,9 @@ export default function AuthCallback() {
         }
         
         // Redirect về trang chủ
-        router.push('/');
+        // router.push('/');
+        router.replace('/');
+
       } catch (error) {
         console.error('Error processing auth callback:', error);
         router.push('/login?error=auth_failed');
