@@ -33,13 +33,14 @@ export const LoginSuccessModal: React.FC<LoginSuccessModalProps> = ({
   );
 
   return (
-    <SuccessModal
-      isOpen={isOpen}
-      onClose={onClose}
-      title="Đăng nhập thành công! haha"
-      message={userName ? `Chào mừng ${userName} đến với Moo Beef Steak!` : "Chào mừng bạn đến với Moo Beef Steak!"}
-      icon={loginIcon}
-    />
+    <div></div>
+    // <SuccessModal
+    //   isOpen={isOpen}
+    //   onClose={onClose}
+    //   title="Đăng nhập thành công! haha"
+    //   message={userName ? `Chào mừng ${userName} đến với Moo Beef Steak!` : "Chào mừng bạn đến với Moo Beef Steak!"}
+    //   icon={loginIcon}
+    // />
   );
 };
 
